@@ -1,4 +1,3 @@
-import sys
 from TTTBoard import *
 from MinimaxPlayer import *
 
