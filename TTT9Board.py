@@ -27,16 +27,16 @@ class TTT9Board:
         for i in range(3):
             for j in range(3):
                 for k in range(3):
-                    self.boardArray[i][k].print_row(j)
-                    if k != 2:
-                        print("  | ", end="")
-                if j != 2:
-                    print("\n------------ | ------------ | ------------")
+                    self.boardArray[i][k].print_row(j)  # Print row j of board (i, k)
+                    if k != 4:
+                        print(" | ", end="")  # Print vertical divider between boards
+                print()  # Newline at the end of each row of boards
+
             if i != 2:
-                print("\n             |              |             ")
-                print("------------------------------------------")
-                print("             |              |             ")
-        print()
+                print("-" * 12 + " | " + "-" * 12 + " | " + "-" * 12)  # Horizontal divider between rows of boards
+                print("             |              |             ")  # Spacing between rows of boards
+
+        print()  # Newline at the end of the entire board display
 
     def get_board(self, index):
         if 1 <= index <= 9:

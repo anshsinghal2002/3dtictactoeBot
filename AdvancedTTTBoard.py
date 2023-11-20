@@ -10,7 +10,7 @@ class AdvancedTTTBoard(TTT9Board):
 
         # if you win one board, you win the game
         if last_board.terminal_state():
-            if not last_board.game_drawn:
+            if not last_board.gameDrawn:
                 self.overallGameStatus = player
             else:
                 self.overallGameStatus = 'd'

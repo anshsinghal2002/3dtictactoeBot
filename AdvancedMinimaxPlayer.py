@@ -12,26 +12,26 @@ class AdvancedMinimaxPlayer:
         self.depth_cutoff = 10
 
     def get_state_utility(self, state_board_gsu):
-        if state_board_gsu.overall_game_status == 'd':
+        if state_board_gsu.overallGameStatus == 'd':
             return 5
-        elif (state_board_gsu.overall_game_status == 'X' and self.game.p2_char == 'X') or (state_board_gsu.overall_game_status == 'O' and self.game.p2_char == 'O'):
+        elif (state_board_gsu.overallGameStatus == 'X' and self.game.p2_char == 'X') or (state_board_gsu.overallGameStatus == 'O' and self.game.p2_char == 'O'):
             return 50
-        elif (state_board_gsu.overall_game_status == 'X' and self.game.p2_char == 'O') or (state_board_gsu.overall_game_status == 'O' and self.game.p2_char == 'X'):
+        elif (state_board_gsu.overallGameStatus == 'X' and self.game.p2_char == 'O') or (state_board_gsu.overallGameStatus == 'O' and self.game.p2_char == 'X'):
             return -50
-        print("Overall Game Status: ", state_board_gsu.overall_game_status)
+        print("Overall Game Status: ", state_board_gsu.overallGameStatus)
         return 2
 
     def heuristic_evaluation(self, state_board_hf):
         h_val = 0
         for i in range(3):
             for j in range(3):
-                board_advantage = state_board_hf.board_array[i][j].get_advantage(state_board_hf.next_player)
-                adjacency_advantage = state_board_hf.board_array[i][j].get_adjacent_pairs(state_board_hf.next_player)
+                board_advantage = state_board_hf.boardArray[i][j].get_advantage(state_board_hf.nextPlayer)
+                adjacency_advantage = state_board_hf.boardArray[i][j].get_adjacent_pairs(state_board_hf.nextPlayer)
                 h_val += board_advantage * adjacency_advantage
         return h_val
 
     def cutoff_test(self, state_board_cf):
-        if state_board_cf.overall_game_status != 'n':
+        if state_board_cf.overallGameStatus != 'n':
             self.reached_terminal_state = True
             return self.reached_terminal_state
         if self.recursion_num < self.depth_cutoff:
@@ -57,7 +57,7 @@ class AdvancedMinimaxPlayer:
                     self.recursion_num = 0
                     self.reached_terminal_state = False
 
-                    move_utility = self.min_value(self.search_state_board.move_result(self.search_state_board.next_player, i, j), -100, 100)
+                    move_utility = self.min_value(self.search_state_board.move_result(self.search_state_board.nextPlayer, i, j), -100, 100)
 
                     if move_utility >= best_move_utility:
                         best_move_utility = move_utility
@@ -86,7 +86,7 @@ class AdvancedMinimaxPlayer:
             for j in range(1, 10):
                 if possible_moves[i][j] != 0:
                     temp_board = copy.deepcopy(state_board_max)
-                    v = max(v, self.min_value(temp_board.move_result(temp_board.next_player, i, j), alpha, beta))
+                    v = max(v, self.min_value(temp_board.move_result(temp_board.nextPlayer, i, j), alpha, beta))
                     if v >= beta:
                         return v
                     alpha = max(alpha, v)
@@ -110,7 +110,7 @@ class AdvancedMinimaxPlayer:
             for j in range(1, 10):
                 if possible_moves[i][j] != 0:
                     temp_board = copy.deepcopy(state_board_min)
-                    v = min(v, self.max_value(temp_board.move_result(temp_board.next_player, i, j), alpha, beta))
+                    v = min(v, self.max_value(temp_board.move_result(temp_board.nextPlayer, i, j), alpha, beta))
                     if v <= alpha:
                         return v
                     beta = min(beta, v)
@@ -118,7 +118,7 @@ class AdvancedMinimaxPlayer:
         return v
 
     def random_move(self):
-        board_num = self.current_game.next_board_index
+        board_num = self.current_game.nextBoardIndex
         local_board = self.current_game.get_next_board()
 
         if local_board.is_board_full():

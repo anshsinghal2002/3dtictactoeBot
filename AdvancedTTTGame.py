@@ -57,8 +57,17 @@ class AdvancedTTTGame:
 
                 # Read user input
                 p1_move = input()
-                board_index = int(p1_move.split()[0])
-                board_pos = int(p1_move.split()[1])
+
+                # Splitting the input and ensuring it has two parts
+                p1_move_parts = p1_move.split()
+
+                while len(p1_move_parts) != 2 or not p1_move_parts[0].isdigit() or not p1_move_parts[1].isdigit():
+                    print("Invalid Input. Moves should be entered as two digits from 1-9 separated by a space")
+                    p1_move = input()
+                    p1_move_parts = p1_move.split()
+
+                board_index = int(p1_move_parts[0])
+                board_pos = int(p1_move_parts[1])
 
                 # Check if entered move is a valid move
                 while not game.board.is_move_allowed(board_index, board_pos):
