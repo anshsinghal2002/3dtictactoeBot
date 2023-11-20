@@ -30,4 +30,10 @@ We measured our progress through iterative improvement of the heuristic, playtes
 
 We believe this project could be converted into a course module for the next CSC320. The code serves as a great introduction to the Konane project and excites students about a no-training AI algorithm capable of determining viable moves through a simple search algorithm. We introduced the game to friends, and it has become highly engaging, with some now challenging the level 10 AI.
 
+Hassan Aamir (Batch of 2025, Econ and Data Analytics): "I'm addicted to Ultimate Tic Tac Toe"
+
+Alisa Motiwala (Batch of 2025, Econ and Data Analytics): "I'm definitely the best out of the group (she isn't), I once beat the level 10 AI (This was a very old version of our heuristic)"
+
+Saeed AlSuwaidi (Batch of 2024, Computer Engineering): "Very fun!"
+
 ---
