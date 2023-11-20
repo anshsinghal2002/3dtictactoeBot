@@ -1,7 +1,7 @@
 class UltimateTicTacToe:
     def __init__(self):
-        self.board = [[' ' for _ in range(9)] for _ in range(9)]  # Create an empty ultimate board
-        self.current_board = (1, 1)  # Starting position in the center board
+        self.board = [[' ' for _ in range(9)] for _ in range(9)]
+        self.current_board = (1, 1)
 
     def print_board(self):
         for i in range(9):
@@ -33,17 +33,17 @@ class UltimateTicTacToe:
 
     def check_winner(self):
         for i in range(3):
-            # Check rows and columns for three consecutive wins
+            #check rows and columns for three consecutive wins
             if (self.board[i][0] == self.board[i][1] == self.board[i][2] != ' ' or
                 self.board[0][i] == self.board[1][i] == self.board[2][i] != ' '):
                 return True, self.board[i][i]
 
-        # Check diagonals
+        #check diagonals
         if (self.board[0][0] == self.board[1][1] == self.board[2][2] != ' ' or
             self.board[0][2] == self.board[1][1] == self.board[2][0] != ' '):
             return True, self.board[1][1]
 
-        # Check for three boards in a row win
+        #check for three boards in a row win
         win_conditions = [
             [(0, 0), (0, 1), (0, 2)], [(1, 0), (1, 1), (1, 2)], [(2, 0), (2, 1), (2, 2)],  # Rows
             [(0, 0), (1, 0), (2, 0)], [(0, 1), (1, 1), (2, 1)], [(0, 2), (1, 2), (2, 2)],  # Columns
@@ -70,7 +70,6 @@ class UltimateTicTacToe:
         self.current_board = (1, 1)
 
 
-# Example usage:
 game = UltimateTicTacToe()
 game.print_board()
 

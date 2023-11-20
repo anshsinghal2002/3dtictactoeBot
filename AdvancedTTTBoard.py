@@ -5,10 +5,10 @@ class AdvancedTTTBoard(TTT9Board):
         super().__init__()
 
     def check_win(self, player, board_index):
-        # game will only terminate on the last board you played on
+        #game will only terminate on the last board you played on
         last_board = self.get_board(board_index)
 
-        # if you win one board, you win the game
+        #if you win one board, you win the game
         if last_board.terminal_state():
             if not last_board.gameDrawn:
                 self.overallGameStatus = player

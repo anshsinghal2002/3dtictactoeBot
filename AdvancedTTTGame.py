@@ -47,7 +47,7 @@ class AdvancedTTTGame:
             while game.board.overallGameStatus == 'n':
                 game.board.display_board()
 
-                # Human player plays
+                #human player plays
                 if game.board.first_move or game.board.get_next_board().is_board_full():
                     helpful_hint = "You can play on any board."
                 else:
@@ -56,10 +56,8 @@ class AdvancedTTTGame:
                 print(f"It is your turn to play, please enter the board (1-9) you would like to play on followed by"
                       f" the position on that board (1-9). {helpful_hint}")
 
-                # Read user input
                 p1_move = input()
 
-                # Splitting the input and ensuring it has two parts
                 p1_move_parts = p1_move.split()
 
                 while len(p1_move_parts) != 2 or not p1_move_parts[0].isdigit() or not p1_move_parts[1].isdigit():
@@ -83,14 +81,13 @@ class AdvancedTTTGame:
                 if game.board.overallGameStatus != 'n':
                     break
 
-                # Computer makes move
                 computer_move = comp_player.h_minimax_decision()
                 print(f"{computer_move[0]} {computer_move[1]}")
                 game.board.move_result(game.p2_char, computer_move[0], computer_move[1])
 
                 print(f"Computer player just made move {computer_move[0]} {computer_move[1]}")
 
-            # After loop terminates, print the game result
+            #After loop terminates, print the game result
             game.board.print_game_result()
             game.board.display_board()
             game.board.clear_board()
