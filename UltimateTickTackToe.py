@@ -1,11 +1,4 @@
-'''
-  ultimate-tick-alpha.py
-  Author: Paul Talaga
-  Date: Nov 8, 2018
-  Description: Solution to Ultimate Tic Tac Toe game with AI agent using the AlphaBeta search
-               algorithm.
-  Works with Python 2.X and 3.X
-'''
+
 
 max_depth = 0
 minimax_calls = 0
