@@ -24,19 +24,18 @@ class TTT9Board:
         self.nextBoardIndex = 1
 
     def display_board(self):
-        for i in range(3):
-            for j in range(3):
-                for k in range(3):
-                    self.boardArray[i][k].print_row(j)  # Print row j of board (i, k)
-                    if k != 4:
-                        print(" | ", end="")  # Print vertical divider between boards
-                print()  # Newline at the end of each row of boards
-
-            if i != 2:
-                print("-" * 12 + " | " + "-" * 12 + " | " + "-" * 12)  # Horizontal divider between rows of boards
-                print("             |              |             ")  # Spacing between rows of boards
-
-        print()  # Newline at the end of the entire board display
+        for row in range(3):  # Iterate over each row of 3x3 boards
+            for line in range(3):  # Each board has 3 lines to display
+                for board in range(3):  # Iterate over each board in the row
+                    # Display the line of the current board
+                    print(" ".join(self.boardArray[row][board].mainBoard[line]), end=" ")
+                    if board != 2:  # Add a vertical separator between boards, except after the last board
+                        print("|", end=" ")
+                if line != 2 or row == 2:  # Add a newline after each line, except the last line of the last row
+                    print()
+                if line == 2 and row != 2:  # Add a horizontal separator after the last line of each row, except the last row
+                    print()
+                    print("-" * 5 + " | " + "-" * 5 + " | " + "-" * 5)
 
     def get_board(self, index):
         if 1 <= index <= 9:
