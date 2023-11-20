@@ -41,14 +41,14 @@ class AdvancedTTTGame:
             if not p1_first:
                 print("Computer playing first")
                 game.board.move_result(game.p2_char, p2_move[0], p2_move[1])
-                game.board.first_move = False
+                game.board.firstMove = False
                 print(f"{p2_move[0]} {p2_move[1]}")
 
             while game.board.overallGameStatus == 'n':
                 game.board.display_board()
 
                 #human player plays
-                if game.board.first_move or game.board.get_next_board().is_board_full():
+                if game.board.firstMove or game.board.get_next_board().is_board_full():
                     helpful_hint = "You can play on any board."
                 else:
                     helpful_hint = f"You should play on board {game.board.nextBoardIndex}."
