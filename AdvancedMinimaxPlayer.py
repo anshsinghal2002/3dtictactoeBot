@@ -2,14 +2,14 @@ import copy
 import random
 
 class AdvancedMinimaxPlayer:
-    def __init__(self, game):
+    def __init__(self, game, depth_cutoff):
         self.current_game = game.board
         self.game = game
         self.search_state_board = None
         self.recursion_num = 0
         self.total_states = 0
         self.reached_terminal_state = False
-        self.depth_cutoff = 10
+        self.depth_cutoff = depth_cutoff
 
     def get_state_utility(self, state_board_gsu):
         if state_board_gsu.overallGameStatus == 'd':

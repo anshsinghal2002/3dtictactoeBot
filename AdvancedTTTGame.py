@@ -9,6 +9,7 @@ class AdvancedTTTGame:
 
     def main(self):
         game = AdvancedTTTGame()
+        depth_cutoff = int(input("Decide the difficulty by entering a number 1 - 10 (The lower the number, the easier the game): "))
 
         while True:
             p1_first = True
@@ -35,7 +36,7 @@ class AdvancedTTTGame:
             else:
                 print("Oh god this should never happen please help")
 
-            comp_player = AdvancedMinimaxPlayer(game)
+            comp_player = AdvancedMinimaxPlayer(game, depth_cutoff)
 
             if not p1_first:
                 print("Computer playing first")
